@@ -1,3 +1,5 @@
+Goal: Create a crawler... through directories and files
+
 Read XPath value from XML files
 Write a JavaScript module which will operate in a Node.js runtime environment and and crawl a directory tree for XML files, which it will read, parse, and retrieve the value of a specific XPath. 
 The output will be a list of files which contain XML structures that match the XPath and the value stored in each. 
@@ -17,13 +19,18 @@ The function should accept two arguments: the file path to crawl, and the XPath 
 If the file path argument points to an actual file, only that file needs to be considered; but if it's a directory, that dir needs to be crawled recursively.
 
 
-Only XML files need to be read and parsed; all other files can be ignored. A file's extension can be considered trustworthy, though it may be any case.
-
+Only XML files need to be read and parsed; all other files can be ignored. 
+A file's extension can be considered trustworthy, though it may be any case.
 
 The contents of an XML file should be read and parsed to retrieve the value at the specified XPath. 
-This value should be converted into a native JavaScript type if possible, so that numbers are numbers, booleans are boolean, etc. 
-If the value cannot parse as any other valid type, however, it should be considered a string. 
+
+This value should be converted into a native JavaScript type if possible, 
+so that numbers are numbers, booleans are boolean, etc. 
+If the value cannot parse as any other valid type, however, 
+it should be considered a string. 
+
 If no XPath match can be found in a file's contents, ignore it and move on.
+
 The function should return an array of objects structured as follows: [ { "path": "some/path/to.xml", "value": true }, ... ]
 
 You can make use of open source libraries as dependencies to simplify complex or tedious operations. 
