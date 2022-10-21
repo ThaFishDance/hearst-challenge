@@ -1,0 +1,44 @@
+Read XPath value from XML files
+Write a JavaScript module which will operate in a Node.js runtime environment and and crawl a directory tree for XML files, which it will read, parse, and retrieve the value of a specific XPath. 
+The output will be a list of files which contain XML structures that match the XPath and the value stored in each. 
+The directory tree may contain XML files which do not match the XPath, and some files which are not XML at all; these should be ignored. 
+The module is expected to handle any other exceptional cases gracefully.
+
+Requirements
+The module must be written in ESM or CommonJS format. Use .mjs and .cjs file extensions, respectively, to distinguish them.
+The module must run in Node.js, so it should not depend on any browser-specific JavaScript features. 
+All built-in Node.js libraries modules are acceptable to use.
+The module's default export should be an asynchronous function which crawls the directory tree and parses the XML files it finds
+
+
+The function should accept two arguments: the file path to crawl, and the XPath within a given XML file to retrieve a value from.
+
+
+If the file path argument points to an actual file, only that file needs to be considered; but if it's a directory, that dir needs to be crawled recursively.
+
+
+Only XML files need to be read and parsed; all other files can be ignored. A file's extension can be considered trustworthy, though it may be any case.
+
+
+The contents of an XML file should be read and parsed to retrieve the value at the specified XPath. 
+This value should be converted into a native JavaScript type if possible, so that numbers are numbers, booleans are boolean, etc. 
+If the value cannot parse as any other valid type, however, it should be considered a string. 
+If no XPath match can be found in a file's contents, ignore it and move on.
+The function should return an array of objects structured as follows: [ { "path": "some/path/to.xml", "value": true }, ... ]
+
+You can make use of open source libraries as dependencies to simplify complex or tedious operations. 
+There is no need to reinvent the wheel.
+Your code should be tidy, legible, and well documented with comments explaining your logic.
+Errors resulting from reasonably edge cases should be caught, but if the correct handling for a case is not described above, 
+the module should throw an error of its own with a descriptive and unique message which includes the details of the original error. 
+Unjustified failures or crashes will be considered to be defects in the module.
+
+
+Extra Credit
+Provide package.json and package-lock.json files alongside the module. Include notation of the Node.js version required to use your module.
+Include a README.md file which documents usage of your module.
+Provide entrypoint modules for both ESM and CommonJS, and configure your package.json to use the correct one based on how the package is imported/required.
+
+
+How to submit
+Please upload the code for this project to a public GitHub repository and post a link below.
